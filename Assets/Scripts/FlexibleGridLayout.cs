@@ -57,8 +57,8 @@ public class FlexibleGridLayout : LayoutGroup
 
         //calculate a size for each child based on the info available. reduce width & height of each child cell relative to the spacing added => prevent overflow
         //support padding: offset x & y position of cells relative to the padding values
-        float cellWidth = (parentContainerWidth / (float) columns) - (spacing.x / (float) columns * 2) - (padding.left / (float) columns) - (padding.right / (float) columns);
-        float cellHeight = (parentContainerHeight / (float) rows) - (spacing.y / (float) rows * 2) - (padding.left / (float) rows) - (padding.right / (float) rows);
+        float cellWidth = (parentContainerWidth / (float) columns) - (spacing.x / (float) columns * (columns - 1)) - (padding.left / (float) columns) - (padding.right / (float) columns);
+        float cellHeight = (parentContainerHeight / (float) rows) - (spacing.y / (float) rows * (rows - 1)) - (padding.left / (float) rows) - (padding.right / (float) rows);
 
         //assign the calculated width & height values to the x & y position of cellSize
         cellSize.x = fitX ? cellWidth : cellSize.x;
